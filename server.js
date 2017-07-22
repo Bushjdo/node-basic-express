@@ -33,7 +33,15 @@ app.use((req , res , next)=>{
 // app.use se giup express nhan cac ham middleware ma ta muon thuc hien
 app.use(express.static(__dirname +"/public"));
 
-app.get('/',function(req , res){
+app.get('/',(req ,res)=>{
+  // to pass the data to template , we must specify the object in second agrument ( object : object)
+  res.render('about',{
+    pageTitle:"Bushjdo page"
+
+  });
+});
+
+app.get('/json',function(req , res){
   // res.send("hello");
   res.json({
     name:"phuc",
@@ -45,13 +53,7 @@ app.get('/help',(req , res)=>{
 
 });
 
-app.get('/hbs',(req ,res)=>{
-  // to pass the data to template , we must specify the object in second agrument ( object : object)
-  res.render('about',{
-    pageTitle:"Bushjdo page"
 
-  });
-})
 
 app.listen(port  , ()=>{
   console.log(`Server is starting on....${port}`);
