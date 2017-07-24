@@ -1,7 +1,7 @@
 var express =  require('express');
 var hbs = require('hbs');
 var fs = require('fs');
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 var app = express();
 
 
@@ -20,8 +20,7 @@ app.use((req , res , next)=>{
       console.log("Can't write log server..");
     }
   })
-  //toString se format date ve dang String co the doc duoc de dange
-  // console.log(`${now} : ${req.url} , ${req.method}`);
+
   next();
 });
 
@@ -55,6 +54,6 @@ app.get('/help',(req , res)=>{
 
 
 
-app.listen(port  , ()=>{
+app.listen(3000,()=>{
   console.log(`Server is starting on....${port}`);
 })
